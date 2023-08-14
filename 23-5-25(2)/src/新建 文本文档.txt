@@ -1,0 +1,101 @@
+以下是我一个Java的项目，请你模仿此项目，帮我写一个员工管理系统，包括老师，领导，并实例化。
+animal2.java:
+public abstract class animal2{
+	private int legnum;
+	private movebehavior movebehavior;
+	public abstract void makesound();
+	animal2(int l){legnum=1;}
+	public int getlegnum(){ return legnum;}
+	
+	public void setmovebehavior(movebehavior m){
+		movebehavior=m;
+		}
+		
+		public void performmove(){
+			movebehavior.move();
+			}
+		
+	
+	}
+
+cat.java:
+public class cat extends animal2{
+	cat(int l){
+		super(l);
+		}
+	
+	public void makesound(){
+		System.out.println("cat makesound!");
+		}
+	}
+
+dog.java:
+public class dog extends animal2{
+	dog(int l){ super(l);}
+	
+	public void makesound(){
+		System.out.println("dog makesound!");
+		}
+	}
+
+duck:java:
+public class duck extends animal2{
+	duck(int l){
+	
+	super(l);
+	}
+	 public void makesound(){
+	 	System.out.println("duck makesounds!");
+	 	}
+	}
+
+fourlegmove.java:
+public class fourlegmove implements movebehavior{
+	public void move(){
+		System.out.println("four legs move!");
+		}
+	}
+
+goose.java:
+public class goose extends animal2{
+	goose(int l){super(l);}
+	public void makesound(){System.out.println("goose make sounds!");}
+	}
+
+movebehavior.java:
+public interface movebehavior{
+	void move();
+	}
+
+rabbit.java:
+public class rabbit extends animal2{
+	rabbit(int l){super(l);}
+	public void makesound(){System.out.println("rabbit not make sound!");}
+	}
+
+twolegmove.java:
+public class twolegmove implements movebehavior{
+	public void move(){
+		System.out.println("two legs move!");
+		}
+	}
+
+animaltest.java:
+public class animaltest{
+	public static void main(String[] agrs){
+		animal2 dog,cat,rabbit,duck,goose;
+		dog=new dog(4);
+		cat=new cat(4);
+		rabbit=new rabbit(4);
+		duck=new duck(2);
+		goose=new goose(2);
+		dog.setmovebehavior(new fourlegmove());
+			cat.setmovebehavior(new fourlegmove());
+				duck.setmovebehavior(new fourlegmove());
+					goose.setmovebehavior(new fourlegmove());
+					dog.performmove();
+					cat.performmove();
+					duck.performmove();
+					goose.performmove();
+		}
+	}
